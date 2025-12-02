@@ -4,6 +4,51 @@ import { storage } from "./storage";
 import { insertCaseReviewSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
+import { promises as fs } from "fs";
+import path from "path";
+import multer from "multer";
+
+const UPLOADS_DIR = path.join(process.cwd(), "uploads");
+
+const fileStorage = multer.diskStorage({
+  destination: async (req, file, cb) => {
+    try {
+      await fs.mkdir(UPLOADS_DIR, { recursive: true });
+      cb(null, UPLOADS_DIR);
+    } catch (error) {
+      cb(error as Error, UPLOADS_DIR);
+    }
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const ext = path.extname(file.originalname);
+    cb(null, `${uniqueSuffix}${ext}`);
+  },
+});
+
+const upload = multer({
+  storage: fileStorage,
+  limits: {
+    fileSize: 10 * 1024 * 1024,
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "image/jpeg",
+      "image/png",
+      "image/gif",
+      "text/plain",
+    ];
+    
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Invalid file type. Allowed: PDF, DOC, DOCX, JPG, PNG, GIF, TXT"));
+    }
+  },
+});
 
 export async function registerRoutes(
   httpServer: Server,
@@ -454,6 +499,141 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error updating booking:", error);
       return res.status(500).json({ message: "Failed to update booking" });
+    }
+  });
+
+  // Evidence File routes
+  app.post("/api/case-reviews/:caseId/evidence", isAuthenticated, upload.single("file"), async (req: any, res) => {
+    try {
+      const { caseId } = req.params;
+      const userId = req.user.claims.sub;
+      const file = req.file;
+
+      if (!file) {
+        return res.status(400).json({ message: "No file provided" });
+      }
+
+      const caseReview = await storage.getCaseReview(caseId);
+      if (!caseReview) {
+        await fs.unlink(file.path);
+        return res.status(404).json({ message: "Case not found" });
+      }
+
+      const user = await storage.getUser(userId);
+      if (caseReview.userId !== userId && user?.role !== "admin") {
+        await fs.unlink(file.path);
+        return res.status(403).json({ message: "Access denied" });
+      }
+
+      const evidenceFile = await storage.createEvidenceFile({
+        caseId,
+        uploadedBy: userId,
+        fileName: file.originalname,
+        fileType: file.mimetype,
+        fileSize: String(file.size),
+        storagePath: file.filename,
+      });
+
+      return res.status(201).json(evidenceFile);
+    } catch (error) {
+      console.error("Error uploading evidence file:", error);
+      if (req.file) {
+        await fs.unlink(req.file.path).catch(() => {});
+      }
+      return res.status(500).json({ message: "Failed to upload file" });
+    }
+  });
+
+  app.get("/api/case-reviews/:caseId/evidence", isAuthenticated, async (req: any, res) => {
+    try {
+      const { caseId } = req.params;
+      const userId = req.user.claims.sub;
+
+      const caseReview = await storage.getCaseReview(caseId);
+      if (!caseReview) {
+        return res.status(404).json({ message: "Case not found" });
+      }
+
+      const user = await storage.getUser(userId);
+      if (caseReview.userId !== userId && user?.role !== "admin") {
+        return res.status(403).json({ message: "Access denied" });
+      }
+
+      const files = await storage.getEvidenceFiles(caseId);
+      return res.json(files);
+    } catch (error) {
+      console.error("Error fetching evidence files:", error);
+      return res.status(500).json({ message: "Failed to fetch files" });
+    }
+  });
+
+  app.get("/api/evidence/:id/download", isAuthenticated, async (req: any, res) => {
+    try {
+      const { id } = req.params;
+      const userId = req.user.claims.sub;
+
+      const file = await storage.getEvidenceFile(id);
+      if (!file) {
+        return res.status(404).json({ message: "File not found" });
+      }
+
+      const caseReview = await storage.getCaseReview(file.caseId);
+      if (!caseReview) {
+        return res.status(404).json({ message: "Case not found" });
+      }
+
+      const user = await storage.getUser(userId);
+      if (caseReview.userId !== userId && user?.role !== "admin") {
+        return res.status(403).json({ message: "Access denied" });
+      }
+
+      const filePath = path.join(UPLOADS_DIR, file.storagePath);
+      
+      try {
+        await fs.access(filePath);
+      } catch {
+        return res.status(404).json({ message: "File not found on disk" });
+      }
+
+      res.setHeader("Content-Disposition", `attachment; filename="${file.fileName}"`);
+      res.setHeader("Content-Type", file.fileType);
+      
+      const fileBuffer = await fs.readFile(filePath);
+      return res.send(fileBuffer);
+    } catch (error) {
+      console.error("Error downloading evidence file:", error);
+      return res.status(500).json({ message: "Failed to download file" });
+    }
+  });
+
+  app.delete("/api/evidence/:id", isAuthenticated, async (req: any, res) => {
+    try {
+      const { id } = req.params;
+      const userId = req.user.claims.sub;
+
+      const file = await storage.getEvidenceFile(id);
+      if (!file) {
+        return res.status(404).json({ message: "File not found" });
+      }
+
+      const caseReview = await storage.getCaseReview(file.caseId);
+      if (!caseReview) {
+        return res.status(404).json({ message: "Case not found" });
+      }
+
+      const user = await storage.getUser(userId);
+      if (caseReview.userId !== userId && user?.role !== "admin") {
+        return res.status(403).json({ message: "Access denied" });
+      }
+
+      const filePath = path.join(UPLOADS_DIR, file.storagePath);
+      await fs.unlink(filePath).catch(() => {});
+      await storage.deleteEvidenceFile(id);
+
+      return res.status(204).send();
+    } catch (error) {
+      console.error("Error deleting evidence file:", error);
+      return res.status(500).json({ message: "Failed to delete file" });
     }
   });
 

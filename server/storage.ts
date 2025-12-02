@@ -49,6 +49,7 @@ export interface IStorage {
   // Evidence Files operations
   createEvidenceFile(file: InsertEvidenceFile): Promise<EvidenceFile>;
   getEvidenceFiles(caseId: string): Promise<EvidenceFile[]>;
+  getEvidenceFile(id: string): Promise<EvidenceFile | undefined>;
   deleteEvidenceFile(id: string): Promise<void>;
   
   // Case Studies operations
@@ -163,6 +164,11 @@ export class DatabaseStorage implements IStorage {
 
   async getEvidenceFiles(caseId: string): Promise<EvidenceFile[]> {
     return db.select().from(evidenceFiles).where(eq(evidenceFiles.caseId, caseId)).orderBy(desc(evidenceFiles.createdAt));
+  }
+
+  async getEvidenceFile(id: string): Promise<EvidenceFile | undefined> {
+    const [file] = await db.select().from(evidenceFiles).where(eq(evidenceFiles.id, id));
+    return file;
   }
 
   async deleteEvidenceFile(id: string): Promise<void> {

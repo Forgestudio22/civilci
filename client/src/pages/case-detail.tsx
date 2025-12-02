@@ -24,6 +24,7 @@ import {
   Activity
 } from "lucide-react";
 import { apiRequest, queryClient } from "@/lib/queryClient";
+import { EvidenceUpload } from "@/components/evidence-upload";
 import type { CaseReview, CaseNote } from "@shared/schema";
 
 const statusColors: Record<string, string> = {
@@ -432,6 +433,10 @@ export default function CaseDetail() {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="mt-6">
+          <EvidenceUpload caseId={caseId!} />
         </div>
 
         <Card className="bg-card border-border mt-6">
