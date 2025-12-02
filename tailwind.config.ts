@@ -81,11 +81,21 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold) / <alpha-value>)",
+          foreground: "hsl(var(--gold-foreground) / <alpha-value>)",
+        },
+        "dark-red": "hsl(var(--dark-red) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+      },
+      fontSize: {
+        'hero': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'section': ['2.75rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'subsection': ['1.875rem', { lineHeight: '1.3' }],
       },
       keyframes: {
         "accordion-down": {
