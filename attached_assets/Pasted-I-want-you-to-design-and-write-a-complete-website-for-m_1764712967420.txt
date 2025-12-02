@@ -1,0 +1,211 @@
+I want you to design and write a complete website for my brand:
+
+Name: Civil CI
+Full Name: Civil CI — Civil Citizens Intelligence
+Tagline(s):
+
+“For the people. Be the people.”
+
+“Fire, focus, and forensic clarity.”
+
+1. What Civil CI Is
+
+Civil CI is:
+
+A civil-rights intelligence unit for regular people
+
+A forensic case reconstruction + misconduct analysis hub
+
+A watchdog + support system for people targeted by systems of power (small towns, counties, agencies, prosecutors, police, courts, etc.)
+
+We help people like Jeremy Austin—those who’ve been railroaded, targeted, or buried in corrupt small-town and county systems—turn chaos into a clear, documented, strategic record.
+
+Tone:
+
+Fierce, intelligent, forensic
+
+Emotional but controlled
+
+Movement energy, not corporate
+
+Feels like an underground civil-rights intelligence division, but professional enough for lawyers and courts to take seriously.
+
+2. Brand Style
+
+Colors:
+
+Background: almost black / deep charcoal
+
+Main red: dark, powerful red (for headings and emphasis)
+
+Gold: warm gold (for underlines, accents, buttons, highlights)
+
+Text: off-white for readability
+
+Imagery:
+
+Forensic / investigative / war-room style
+
+Smoke, light streaks, evidence boards, timelines, documents, maps, string lines
+
+No cheesy courthouse stock photos
+
+Fonts (or similar):
+
+Headings: elegant serif (like Cormorant Garamond)
+
+Body: modern clean sans-serif (like Montserrat)
+
+3. Pages / Sections I Want
+
+Build this as a one-page site with sections (or multiple pages if needed):
+
+A. HERO SECTION (Top of page)
+
+Goal: instantly show that Civil CI is a citizen-powered civil-rights intelligence unit.
+
+Hero text to use and refine:
+
+CIVIL CI — CIVIL CITIZENS INTELLIGENCE
+For the people. Be the people.
+When the system targets you, we stand with you.
+When counties conspire, we expose the pattern.
+Civil CI is a civil-rights intelligence unit for regular people — a forensic case reconstruction and misconduct analysis hub, and a watchdog support system for anyone targeted by systems of power.
+
+Buttons in hero:
+
+Primary CTA: “Book a Case Review”
+
+Secondary CTA: “Explore Services”
+
+Right side of hero should show a strong, dark-toned portrait/photo or forensic-style image that matches the brand.
+
+B. “WHAT WE DO” SECTION
+
+Explain, in clear language, that Civil CI does three core things:
+
+Civil Rights Intelligence for Regular People
+
+Turn messy cases into timelines, maps, and clear summaries.
+
+Forensic Case Reconstruction & Misconduct Analysis
+
+Rebuild events, examine warrants, reports, filings, footage, etc.
+
+Identify contradictions, patterns, rights violations.
+
+Watchdog & Support System Against Abusive Power
+
+Help people pressured or targeted by local power structures.
+
+Provide structure and documentation they can use with lawyers, courts, agencies, and media.
+
+Make this section feel like “this is bigger than consulting; this is an intelligence unit for citizens.”
+
+C. SERVICES SECTION
+
+Create service cards for:
+
+Case Reconstruction Package
+
+Full timeline, evidence map, contradiction analysis, strategic summary.
+
+Describe who it’s for and why it’s powerful.
+
+Civil Rights Misconduct Review
+
+Deep dive into official conduct, cross-county patterns, affidavit/warrant issues, prosecutorial behavior, etc.
+
+Affidavit & Narrative Support
+
+Helping clients structure their story, affidavits, declarations, and written statements aligned with evidence.
+
+Pro Se Support (Ongoing)
+
+Monthly/ongoing structure + support for people representing themselves.
+
+Strategy Sessions
+
+60–90 minute focused consult to get clarity and next steps.
+
+You can invent placeholder pricing or leave it “Contact for pricing,” but keep the tone confident and boutique-level.
+
+D. “HOW IT WORKS” SECTION
+
+4-step process:
+
+Book a Case Review (intake + fit check)
+
+Secure Intake & Evidence (gather docs, footage, filings)
+
+Forensic Reconstruction (build timeline, identify misconduct, create clarity)
+
+Strategy Handoff (give client a clear, structured record and next steps)
+
+Make this feel simple and safe for someone overwhelmed.
+
+E. ABOUT SECTION
+
+Write an “About” that explains:
+
+Civil CI was born out of a real, brutal case where small-town counties conspired, abused their power, forged or altered documents, retaliated, and tried to bury one man and his story.
+
+Instead of giving up, we documented everything, learned the systems, and realized how many other people were living the same kind of nightmare.
+
+Now Civil CI stands in that gap: not a law firm, not a government office — but a citizen-built intelligence unit dedicated to exposing what they try to hide.
+
+Include one strong, poetic quote in this section, like:
+
+“They thought we’d stay overwhelmed and alone. Instead, we built an intelligence unit for everyone they ever targeted.”
+
+F. CONTACT SECTION
+
+Create a Contact / Case Review section with:
+
+Short text explaining:
+
+who should reach out (people dealing with misconduct, railroading, corruption, small-town power abuse, etc.),
+
+what to send (brief summary, deadlines, not every document yet),
+
+reassurance that everything is kept confidential.
+
+A simple form with:
+
+Name
+
+Email
+
+Optional Phone
+
+Case Summary / Message
+
+Urgency / upcoming deadlines
+
+Button text: “Send Case Summary” or “Request Review”.
+
+4. Tone Guidelines
+
+Throughout the entire site, write copy that feels:
+
+Fierce and uncompromising, but not unhinged
+
+Poetic in places, sharp as a warning in others
+
+Trauma-aware and respectful of what people are going through
+
+Anti-corruption, pro-citizen, pro-truth
+
+Confident in the work without promising legal outcomes
+
+It should feel like a movement and an elite investigative service at the same time.
+
+5. Deliverables
+
+A complete website structure (sections, headings, subheadings, body copy).
+
+Suggested layout (hero, sections order, CTAs).
+
+If possible: clean HTML/CSS structure matching the above style.
+
+All text should be ready to paste into a website builder.
