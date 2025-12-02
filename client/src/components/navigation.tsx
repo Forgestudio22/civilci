@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User, LogIn } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 interface NavigationProps {
   onNavigate: (section: string) => void;
@@ -13,9 +15,16 @@ const navLinks = [
   { label: "About", section: "about" },
 ];
 
+const pageLinks = [
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Resources", href: "/resources" },
+  { label: "Blog", href: "/blog" },
+];
+
 export function Navigation({ onNavigate }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAuthenticated, isLoading } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +60,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
             </span>
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.section}
@@ -63,9 +72,36 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
+            <div className="h-4 w-px bg-border" />
+            {pageLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground hover:text-gold transition-colors relative group"
+                data-testid={`link-page-${link.href.slice(1)}`}
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            {!isLoading && isAuthenticated ? (
+              <Link href="/dashboard">
+                <Button variant="outline" size="sm" className="gap-2" data-testid="button-dashboard">
+                  <User className="h-4 w-4" />
+                  Dashboard
+                </Button>
+              </Link>
+            ) : !isLoading ? (
+              <a href="/api/login">
+                <Button variant="ghost" size="sm" className="gap-2" data-testid="button-login">
+                  <LogIn className="h-4 w-4" />
+                  Login
+                </Button>
+              </a>
+            ) : null}
             <Button
               onClick={() => handleNavClick("contact")}
               className="bg-gold hover:bg-gold/90 text-gold-foreground font-medium"
@@ -99,9 +135,37 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 {link.label}
               </button>
             ))}
+            <div className="h-px bg-border my-2" />
+            {pageLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block w-full text-left py-2 text-muted-foreground hover:text-gold transition-colors"
+                data-testid={`link-mobile-page-${link.href.slice(1)}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="h-px bg-border my-2" />
+            {!isLoading && isAuthenticated ? (
+              <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="outline" className="w-full gap-2" data-testid="button-mobile-dashboard">
+                  <User className="h-4 w-4" />
+                  Dashboard
+                </Button>
+              </Link>
+            ) : !isLoading ? (
+              <a href="/api/login">
+                <Button variant="ghost" className="w-full gap-2" data-testid="button-mobile-login">
+                  <LogIn className="h-4 w-4" />
+                  Login
+                </Button>
+              </a>
+            ) : null}
             <Button
               onClick={() => handleNavClick("contact")}
-              className="w-full mt-4 bg-gold hover:bg-gold/90 text-gold-foreground font-medium"
+              className="w-full mt-2 bg-gold hover:bg-gold/90 text-gold-foreground font-medium"
               data-testid="button-cta-mobile"
             >
               Book Case Review
