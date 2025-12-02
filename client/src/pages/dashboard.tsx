@@ -204,9 +204,10 @@ export default function Dashboard() {
               ) : cases && cases.length > 0 ? (
                 <div className="space-y-4">
                   {cases.map(caseReview => (
-                    <div
+                    <Link
                       key={caseReview.id}
-                      className="p-4 rounded-lg border border-border bg-background hover-elevate cursor-pointer transition-colors"
+                      href={`/case/${caseReview.id}`}
+                      className="block p-4 rounded-lg border border-border bg-background hover-elevate cursor-pointer transition-colors"
                       data-testid={`card-case-${caseReview.id}`}
                     >
                       <div className="flex items-start justify-between gap-4 mb-2">
@@ -233,7 +234,7 @@ export default function Dashboard() {
                           {caseReview.urgency.charAt(0).toUpperCase() + caseReview.urgency.slice(1)}
                         </Badge>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               ) : (
