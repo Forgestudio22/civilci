@@ -44,21 +44,25 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               </h1>
               
               <p className="text-gold font-serif text-lg sm:text-xl md:text-2xl italic" data-testid="text-hero-tagline">
-                For the people. Be the people.
+                For the people. By the people.
               </p>
             </div>
 
             <div className="space-y-4 max-w-2xl">
               <p className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed" data-testid="text-hero-mission">
-                When the system targets you, we stand with you.
-                <br className="hidden sm:block" />
-                <span className="text-muted-foreground">When counties conspire, we expose the pattern.</span>
+                We will not tolerate corruption.
               </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                Civil CI is a civil-rights intelligence unit for regular people — a forensic case 
-                reconstruction and misconduct analysis hub, and a watchdog support system for 
-                anyone targeted by systems of power.
+                We have carried its burdens, endured its weapons, and survived its intent.
+                And from every injustice, we built a movement — forged in fire, sharpened by truth, 
+                united by the simple promise that corruption will not go unanswered.
+              </p>
+
+              <p className="text-foreground/90 font-medium leading-relaxed">
+                We are done pleading. We are done waiting.
+                <br />
+                <span className="text-gold">We demand accountability — and this time, the people are watching.</span>
               </p>
             </div>
 
