@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import founderImage from "@assets/founder-photo.jpg";
 
 export function AboutSection() {
   return (
@@ -41,15 +42,31 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="my-12 md:my-16 relative">
-          <div className="absolute -left-2 md:-left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-gold via-gold/50 to-transparent rounded-full" />
+        <div className="my-12 md:my-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="relative flex-shrink-0">
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-md overflow-hidden border-2 border-gold/30">
+              <img 
+                src={founderImage} 
+                alt="Founder of Civil CI" 
+                className="w-full h-full object-cover object-top"
+                data-testid="img-founder"
+              />
+            </div>
+            <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gold/20 rounded-md -z-10" />
+            <div className="absolute -top-2 -left-2 w-8 h-8 bg-primary/20 rounded-md -z-10" />
+          </div>
           
-          <div className="pl-6 md:pl-8">
-            <Quote className="h-8 w-8 md:h-10 md:w-10 text-gold/30 mb-4" />
-            <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl italic text-foreground leading-relaxed" data-testid="text-about-quote">
-              "They thought we'd stay overwhelmed and alone. Instead, we built an intelligence 
-              unit for everyone they ever targeted."
-            </blockquote>
+          <div className="flex-1 relative">
+            <div className="absolute -left-2 md:-left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-gold via-gold/50 to-transparent rounded-full" />
+            
+            <div className="pl-6 md:pl-8">
+              <Quote className="h-8 w-8 md:h-10 md:w-10 text-gold/30 mb-4" />
+              <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl italic text-foreground leading-relaxed" data-testid="text-about-quote">
+                "They thought we'd stay overwhelmed and alone. Instead, we built an intelligence 
+                unit for everyone they ever targeted."
+              </blockquote>
+              <p className="mt-4 text-sm text-muted-foreground">— Founder, Civil CI</p>
+            </div>
           </div>
         </div>
 
