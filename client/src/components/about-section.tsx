@@ -62,8 +62,7 @@ export function AboutSection() {
             <div className="pl-6 md:pl-8">
               <Quote className="h-8 w-8 md:h-10 md:w-10 text-gold/30 mb-4" />
               <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl italic text-foreground leading-relaxed" data-testid="text-about-quote">
-                "They thought we'd stay overwhelmed and alone. Instead, we built an intelligence 
-                unit for everyone they ever targeted."
+                "Corruption had its time. Now accountability has a name."
               </blockquote>
               <p className="mt-4 text-sm text-muted-foreground">— Founder, Civil CI</p>
             </div>
