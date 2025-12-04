@@ -9,6 +9,7 @@ import CaseDetail from "@/pages/case-detail";
 import CaseStudiesPage from "@/pages/case-studies";
 import ResourcesPage from "@/pages/resources";
 import BlogPage from "@/pages/blog";
+import BlogPostPage from "@/pages/blog-post";
 import SchedulePage from "@/pages/schedule";
 import NotFound from "@/pages/not-found";
 
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/case-studies" component={CaseStudiesPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/blog" component={BlogPage} />
+      <Route path="/blog/:slug" component={BlogPostPage} />
       <Route path="/schedule" component={SchedulePage} />
       <Route component={NotFound} />
     </Switch>
