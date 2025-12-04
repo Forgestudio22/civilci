@@ -1,4 +1,5 @@
 import { Calendar, Lock, Search, ArrowRight } from "lucide-react";
+import founderHeadshot from "@assets/founder-headshot.jpg";
 
 const steps = [
   {
@@ -42,15 +43,35 @@ export function HowItWorksSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-section font-bold text-primary mb-4" data-testid="text-how-it-works-title">
-            How It Works
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground" data-testid="text-how-it-works-description">
-            From overwhelmed to organized. Our process is designed to be{" "}
-            <span className="text-gold">simple, secure, and safe</span> for people who've 
-            been through enough already.
-          </p>
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 mb-16 md:mb-20">
+          <div className="relative flex-shrink-0">
+            <div className="w-64 h-80 md:w-72 md:h-96 rounded-lg overflow-hidden border-2 border-gold/30">
+              <img 
+                src={founderHeadshot} 
+                alt="Civil CI Founder" 
+                className="w-full h-full object-cover"
+                data-testid="img-founder-headshot"
+              />
+            </div>
+            <div className="absolute -bottom-3 -right-3 w-16 h-16 bg-gold/20 rounded-lg -z-10" />
+            <div className="absolute -top-3 -left-3 w-12 h-12 bg-primary/20 rounded-lg -z-10" />
+          </div>
+          
+          <div className="flex-1 text-center lg:text-left">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-section font-bold text-primary mb-4" data-testid="text-how-it-works-title">
+              How It Works
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground mb-4" data-testid="text-how-it-works-description">
+              From overwhelmed to organized. Our process is designed to be{" "}
+              <span className="text-gold">simple, secure, and safe</span> for people who've 
+              been through enough already.
+            </p>
+            <p className="text-foreground/90 leading-relaxed">
+              I've been where you are. I know how isolating it feels when the system turns against you. 
+              That's why every step of our process is built to protect you, believe you, and help you 
+              fight back with clarity and evidence.
+            </p>
+          </div>
         </div>
 
         <div className="hidden lg:block relative mb-8">
