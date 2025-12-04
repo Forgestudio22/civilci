@@ -139,11 +139,19 @@ export default function CaseStudiesPage() {
               If you've experienced systemic abuse, misconduct, or rights violations, your story 
               could help others facing similar situations. All submissions are confidential.
             </p>
-            <Link href="/#contact">
-              <Button className="bg-gold hover:bg-gold/90 text-background" data-testid="button-share-story">
-                Share Your Story
-              </Button>
-            </Link>
+            <Button 
+              className="bg-gold hover:bg-gold/90 text-background" 
+              data-testid="button-share-story"
+              onClick={() => {
+                window.location.href = "/#contact";
+                setTimeout(() => {
+                  const element = document.getElementById("contact");
+                  if (element) element.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
+            >
+              Share Your Story
+            </Button>
           </div>
         </div>
       </main>
