@@ -36,6 +36,7 @@ export const caseReviews = pgTable("case_reviews", {
   name: text("name").notNull(),
   email: text("email").notNull(),
   phone: text("phone"),
+  serviceType: text("service_type"),
   caseSummary: text("case_summary").notNull(),
   urgency: text("urgency").notNull(),
   status: text("status").default("pending").notNull(),
@@ -62,6 +63,18 @@ export const insertCaseReviewSchema = createInsertSchema(caseReviews).omit({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
+  serviceType: z.enum([
+    "case-reconstruction",
+    "misconduct-review",
+    "affidavit-support",
+    "pro-se-support",
+    "strategy-session",
+    "document-organization",
+    "complaint-support",
+    "timeline-map",
+    "accountability-package",
+    "not-sure"
+  ]).optional(),
   caseSummary: z.string().min(50, "Please provide at least 50 characters describing your case"),
   urgency: z.enum(["low", "medium", "high", "critical"], {
     required_error: "Please select an urgency level",

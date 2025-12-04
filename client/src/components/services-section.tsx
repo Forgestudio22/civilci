@@ -16,19 +16,22 @@ const services = [
   {
     icon: FileStack,
     title: "Case Reconstruction Package",
-    tagline: "Forensic rebuild of your entire case.",
+    tagline: "A forensic rebuild of everything that happened.",
     description:
-      "We turn chaos into a crystal-clear timeline. This service rebuilds your case from the first incident to the present day using documents, filings, videos, memos, bodycam, police reports, and your lived experience.",
+      "We rebuild your entire case from scratch — in the correct order, with evidence attached, contradictions highlighted, and every act of misconduct exposed.",
+    perfectFor: "Messy, chaotic, long-running, manipulated, or overwhelming cases.",
     details: [
-      "Full chronological reconstruction",
-      "Evidence map (documents, exhibits, footage, links)",
-      "Pattern identification and cross-agency analysis",
-      "Contradiction detection",
-      "Official misconduct flags",
-      "Strategic report for attorneys and courts",
+      "Master timeline (with citations)",
+      "Evidence map (docs, screenshots, footage, links)",
+      "Officer/official breakdown",
+      "County crossover map",
+      "Affidavit/warrant contradiction analysis",
+      "Missing-evidence flags",
+      "Pattern recognition",
+      "Strategy summary for lawyers, court, or media",
     ],
-    forWho: "Anyone whose case is a mess, overwhelming, scattered, or deliberately made confusing.",
-    whyDifferent: "Because Civil CI rebuilds cases like an intelligence analyst—not a lawyer.",
+    whyMatters: "Because corruption thrives on confusion. We turn confusion into clarity — and clarity into a weapon.",
+    pricing: "$2,000–$3,500",
     featured: true,
   },
   {
@@ -36,145 +39,155 @@ const services = [
     title: "Civil Rights Misconduct Review",
     tagline: "We expose what they hoped you'd miss.",
     description:
-      "A deep dive into actions taken by law enforcement, prosecutors, agencies, county officials, or courts. We analyze conduct and decisions through a civil-rights lens.",
+      "A deep dive into actions taken by law enforcement, prosecutors, county officials, or agencies through a civil-rights lens.",
+    perfectFor: "Anyone suspecting wrongdoing by officers, prosecutors, county officials, or agencies.",
     details: [
-      "Warrant & affidavit breakdown",
-      "Chain-of-custody scrutiny",
-      "Due process review",
-      "Fourth Amendment violation analysis",
-      "Retaliation indicators",
-      "Pattern tracking across counties or agencies",
+      "Warrant and affidavit breakdown",
+      "\"Plain view\" and probable cause analysis",
+      "Illegal search indicators",
+      "Use-of-force/misconduct review",
+      "Rights violation tracking",
+      "Pattern-of-abuse identification",
+      "Cross-county coordination mapping",
+      "Documentation for bar complaints, internal affairs, or civil rights suits",
     ],
-    forWho: "Anyone who believes officials acted outside the law or abused their authority.",
-    whyDifferent: "We analyze misconduct like a watchdog unit, not a defense team.",
+    whyMatters: "Most misconduct is hidden in the details. We find the details.",
+    pricing: "$1,200–$2,800",
+    featured: true,
+  },
+  {
+    icon: Shield,
+    title: "The Accountability Package",
+    tagline: "When corruption isn't the exception — it's the pattern.",
+    description:
+      "A comprehensive package for cases involving retaliation, corruption, overreach, forged documents, illegal searches, property seizures, denied protection orders, prosecutorial misconduct, and cross-county collusion.",
+    perfectFor: "Clients in cases involving systemic corruption and multi-official misconduct.",
+    details: [
+      "Case reconstruction",
+      "Misconduct deep dive",
+      "Evidence packet",
+      "Accountability roadmap",
+      "Complaint templates",
+      "Strategy call",
+      "Documentation for media, attorneys, and agencies",
+    ],
+    whyMatters: "Because corruption doesn't end until someone documents it.",
+    pricing: "Custom",
     featured: true,
   },
   {
     icon: FileText,
     title: "Affidavit & Narrative Support",
-    tagline: "Your story matters. We make it undeniable.",
+    tagline: "Your story, structured with forensic precision.",
     description:
-      "You speak. We structure. Together, we build a statement that reflects your truth and aligns it with dates, evidence, and facts.",
+      "We help you build victim statements, witness statements, declarations, and sworn affidavits with clarity and power.",
+    perfectFor: "Victim statements, witness statements, declarations, sworn affidavits.",
     details: [
-      "Statement drafting",
-      "Affidavit structure & formatting",
-      "Evidence-aligned narrative",
-      "Chronology correction",
-      "Fact-checking and internal consistency review",
-      "Court-ready clarity",
+      "Full drafting support",
+      "Fact-checked timeline alignment",
+      "Incident listings with dates & citations",
+      "Narrative flow refinement",
+      "Court-ready formatting",
+      "Trauma-aware support",
     ],
-    forWho: "Clients writing affidavits, declarations, victim statements, or personal narratives tied to legal or civil complaints.",
-    whyDifferent: "We keep your voice intact—while giving it forensic precision.",
+    whyMatters: "Your voice deserves clarity, not chaos.",
+    pricing: "$500–$900",
     featured: false,
   },
   {
     icon: Users,
-    title: "Pro Se Support Package",
-    tagline: "You're not alone. We become your support system.",
+    title: "Pro Se Support",
+    tagline: "When you're forced to stand alone — we stand with you.",
     description:
-      "For those representing themselves or feeling abandoned by the system—Civil CI becomes your behind-the-scenes case structure, documentation partner, and strategy coach.",
+      "For individuals without legal representation or with overwhelmed/bad attorneys. We become your behind-the-scenes support system.",
+    perfectFor: "Individuals without legal representation or with inadequate counsel.",
     details: [
       "Weekly strategy calls",
       "Filing organization",
-      "Evidence alignment",
-      "Issue spotting",
-      "Formatting support",
-      "Step-by-step next-move planning",
+      "Issue mapping",
+      "Evidence structure",
+      "Court prep",
+      "Exhibit creation",
+      "Deadlines and tracking",
+      "Written guides for next steps",
     ],
-    forWho: "People fighting their case without adequate legal help.",
-    whyDifferent: "This isn't legal advice. It's survival strategy.",
-    pricing: "Monthly",
+    whyMatters: "You shouldn't need a law degree to survive legal abuse.",
+    pricing: "$1,200/mo",
     featured: false,
   },
   {
     icon: Clock,
     title: "Strategy Session",
-    tagline: "Clarity when you need it most.",
+    tagline: "Immediate clarity for urgent situations.",
     description:
-      "A focused, immediate deep dive into your case to identify the key issues and determine your next steps.",
+      "A focused 60–90 minute deep dive for people in crisis or unsure where to begin.",
+    perfectFor: "People in crisis, unsure where to begin.",
     details: [
-      "Fast case review",
-      "Identification of 3–7 critical issues",
-      "Risk assessment",
-      "Timeline priorities",
-      "Customized strategy map",
-      "Action items you can implement right away",
+      "Rapid case evaluation",
+      "Identification of key issues",
+      "Prioritized timeline",
+      "Immediate next steps",
+      "Pressure points to target",
+      "Strategy for survival",
     ],
-    forWho: "Anyone overwhelmed, confused, or unsure where to begin.",
-    whyDifferent: "It's like sitting down with a forensic analyst, a strategist, and an advocate at the same time.",
-    pricing: "60–90 min",
+    whyMatters: "Confusion is the system's greatest weapon. Clarity is yours.",
+    pricing: "$300",
     featured: false,
   },
   {
     icon: FolderOpen,
     title: "Document & Evidence Organization",
-    tagline: "Turn your evidence into a weapon of truth.",
+    tagline: "Turn your evidence into a force they cannot ignore.",
     description:
-      "We take every file, clip, screenshot, report, text, and document you have and organize it into a usable system.",
+      "We take every file, clip, screenshot, report, and document you have and organize it into a usable system.",
+    perfectFor: "Anyone buried in documents, screenshots, footage, or scattered evidence.",
     details: [
-      "Evidence folders",
-      "Indexing & file labeling",
-      "Exhibit creation",
-      "Link mapping",
-      "Master evidence archive",
+      "File sorting & renaming",
+      "Evidence folder creation",
+      "Index spreadsheets",
+      "Exhibit preparation",
+      "Color-coded evidence map",
     ],
-    forWho: "Clients buried in documents—or lacking the ability to organize them.",
-    whyDifferent: "Courts, lawyers, and agencies respond better to organized truth.",
+    whyMatters: "Organized truth is impossible to dismiss.",
+    pricing: "$125/hr",
     featured: false,
   },
   {
     icon: FileWarning,
-    title: "Official Complaint & Report Support",
-    tagline: "Hold them accountable the right way.",
+    title: "Official Complaint Support",
+    tagline: "Hold them accountable — properly.",
     description:
-      "We help you structure formal complaints to Internal Affairs, Sheriff's offices, Prosecutors, Judges, State agencies, Federal oversight entities, and Bar associations.",
+      "We help you structure formal complaints to bar associations, internal affairs, sheriff/prosecutor offices, judicial ethics boards, and oversight agencies.",
+    perfectFor: "Bar complaints, internal affairs reports, judicial ethics complaints, civil rights letters.",
     details: [
-      "Drafting support",
+      "Drafting assistance",
       "Evidence alignment",
       "Timeline references",
-      "Legal-issue framing",
+      "Issue summaries",
       "Filing strategy",
     ],
-    forWho: "Clients demanding accountability and change.",
-    whyDifferent: "We know the patterns. We know the language. We know what needs to be exposed.",
+    whyMatters: "The system protects itself. We show you how to expose it.",
+    pricing: "$125/hr",
     featured: false,
   },
   {
     icon: Map,
-    title: "Case Timeline & Issue Map",
-    tagline: "See your entire story in one frame.",
+    title: "Timeline & Issue Map",
+    tagline: "See your case in one frame.",
     description:
       "A visual and written timeline that shows every moment, event, hearing, filing, decision, and misconduct pattern.",
+    perfectFor: "Someone who needs their case summarized for court, attorneys, or media.",
     details: [
-      "Chronological timeline",
-      "Pattern map",
-      "Officer-by-officer misconduct chart",
+      "Visual timeline",
+      "Issue clusters",
+      "Violation map",
       "County crossover map",
+      "Officer chain summary",
       "Evidence references",
-      "Summary of key turning points",
     ],
-    forWho: "Someone who needs their case summarized for court, attorneys, or media.",
-    whyDifferent: "It turns confusion into clarity—and clarity into power.",
+    whyMatters: "This is what attorneys, judges, and investigators need to understand your case instantly.",
+    pricing: "$125/hr",
     featured: false,
-  },
-  {
-    icon: Shield,
-    title: "The Accountability Package",
-    tagline: "When corruption is the pattern.",
-    description:
-      "A targeted package built for cases involving corruption, retaliation, abuse of authority, collusion between counties, multi-official misconduct, forged documents, illegal searches, seized property, and denial of protection.",
-    details: [
-      "Case reconstruction",
-      "Misconduct deep dive",
-      "Evidence map",
-      "Accountability roadmap",
-      "Complaint templates",
-      "Strategy session",
-      "Tools for pressure + exposure",
-    ],
-    forWho: "Exactly the kind of case Civil CI was born to fight.",
-    whyDifferent: "This is our flagship. Built from experience. Designed for justice.",
-    featured: true,
   },
 ];
 
@@ -211,7 +224,7 @@ export function ServicesSection() {
               data-testid={`card-service-featured-${index}`}
             >
               <div className="absolute top-4 right-4">
-                <Badge className="bg-gold text-gold-foreground">Featured</Badge>
+                <Badge className="bg-gold text-gold-foreground">{service.pricing}</Badge>
               </div>
               
               <div className="absolute top-0 left-0 w-16 h-16">
@@ -235,6 +248,11 @@ export function ServicesSection() {
               </CardHeader>
 
               <CardContent className="space-y-5">
+                <div>
+                  <p className="text-xs text-foreground/70 mb-2">Perfect for:</p>
+                  <p className="text-xs text-gold italic">{service.perfectFor}</p>
+                </div>
+
                 <ul className="space-y-1.5">
                   {service.details.slice(0, 5).map((detail, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
@@ -247,12 +265,9 @@ export function ServicesSection() {
                   )}
                 </ul>
 
-                <div className="pt-4 border-t border-border space-y-2">
-                  <p className="text-sm text-foreground/80 italic">
-                    {service.forWho}
-                  </p>
-                  <p className="text-xs text-gold/80">
-                    {service.whyDifferent}
+                <div className="pt-4 border-t border-border">
+                  <p className="text-xs text-foreground/90 italic leading-relaxed">
+                    {service.whyMatters}
                   </p>
                 </div>
               </CardContent>
@@ -274,11 +289,9 @@ export function ServicesSection() {
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <service.icon className="h-5 w-5 text-primary" />
                   </div>
-                  {service.pricing && (
-                    <Badge variant="outline" className="text-xs border-gold/30 text-gold">
-                      {service.pricing}
-                    </Badge>
-                  )}
+                  <Badge variant="outline" className="text-xs border-gold/30 text-gold">
+                    {service.pricing}
+                  </Badge>
                 </div>
                 <CardTitle className="font-serif text-lg text-foreground mt-3">
                   {service.title}
@@ -304,17 +317,22 @@ export function ServicesSection() {
                   )}
                 </ul>
 
-                <div className="pt-3 border-t border-border space-y-1.5">
-                  <p className="text-xs text-foreground/80 italic">
-                    {service.forWho}
-                  </p>
-                  <p className="text-xs text-primary/70">
-                    {service.whyDifferent}
+                <div className="pt-3 border-t border-border">
+                  <p className="text-xs text-foreground/90 italic">
+                    {service.whyMatters}
                   </p>
                 </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="inline-block px-6 py-3 rounded-lg border border-border bg-card/50">
+            <p className="text-sm text-muted-foreground">
+              <span className="text-gold font-medium">Rush work available</span> — add 35% for urgent deadlines
+            </p>
+          </div>
         </div>
       </div>
     </section>

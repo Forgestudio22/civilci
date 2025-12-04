@@ -36,6 +36,7 @@ export function ContactSection() {
       name: "",
       email: "",
       phone: "",
+      serviceType: undefined,
       caseSummary: "",
       urgency: "medium",
     },
@@ -156,24 +157,57 @@ export function ContactSection() {
                       />
                     </div>
 
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground">
+                            Phone <span className="text-muted-foreground">(optional)</span>
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              type="tel"
+                              placeholder="(555) 123-4567"
+                              className="bg-card border-border focus:border-gold focus:ring-gold"
+                              data-testid="input-phone"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
                     <div className="grid sm:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
-                        name="phone"
+                        name="serviceType"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-foreground">
-                              Phone <span className="text-muted-foreground">(optional)</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="tel"
-                                placeholder="(555) 123-4567"
-                                className="bg-card border-border focus:border-gold focus:ring-gold"
-                                data-testid="input-phone"
-                                {...field}
-                              />
-                            </FormControl>
+                            <FormLabel className="text-foreground">Service Requested</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger
+                                  className="bg-card border-border focus:border-gold focus:ring-gold"
+                                  data-testid="select-service"
+                                >
+                                  <SelectValue placeholder="Select a service" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="case-reconstruction">Case Reconstruction</SelectItem>
+                                <SelectItem value="misconduct-review">Misconduct Review</SelectItem>
+                                <SelectItem value="affidavit-support">Affidavit Support</SelectItem>
+                                <SelectItem value="pro-se-support">Pro Se Support</SelectItem>
+                                <SelectItem value="strategy-session">Strategy Session</SelectItem>
+                                <SelectItem value="document-organization">Document Organization</SelectItem>
+                                <SelectItem value="complaint-support">Complaint Support</SelectItem>
+                                <SelectItem value="timeline-map">Timeline & Issue Map</SelectItem>
+                                <SelectItem value="accountability-package">Accountability Package</SelectItem>
+                                <SelectItem value="not-sure">Not Sure Yet</SelectItem>
+                              </SelectContent>
+                            </Select>
                             <FormMessage />
                           </FormItem>
                         )}
@@ -195,10 +229,10 @@ export function ContactSection() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="low">Low - No immediate deadlines</SelectItem>
-                                <SelectItem value="medium">Medium - Upcoming deadlines</SelectItem>
-                                <SelectItem value="high">High - Urgent deadlines</SelectItem>
-                                <SelectItem value="critical">Critical - Immediate action needed</SelectItem>
+                                <SelectItem value="low">No urgent deadline</SelectItem>
+                                <SelectItem value="medium">Within 1 week</SelectItem>
+                                <SelectItem value="high">Within 48 hours</SelectItem>
+                                <SelectItem value="critical">Immediate (rush)</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -239,7 +273,7 @@ export function ContactSection() {
                           Submitting...
                         </>
                       ) : (
-                        "Send Case Review Request"
+                        "Request Case Review"
                       )}
                     </Button>
                   </form>
