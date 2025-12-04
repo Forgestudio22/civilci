@@ -11,6 +11,11 @@ import ResourcesPage from "@/pages/resources";
 import BlogPage from "@/pages/blog";
 import BlogPostPage from "@/pages/blog-post";
 import SchedulePage from "@/pages/schedule";
+import AdminDashboard from "@/pages/admin/index";
+import AdminCases from "@/pages/admin/cases";
+import AdminBlog from "@/pages/admin/blog";
+import AdminServices from "@/pages/admin/services";
+import AdminSettings from "@/pages/admin/settings";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,6 +29,11 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:slug" component={BlogPostPage} />
       <Route path="/schedule" component={SchedulePage} />
+      <Route path="/admin" component={AdminDashboard} />
+      <Route path="/admin/cases" component={AdminCases} />
+      <Route path="/admin/blog" component={AdminBlog} />
+      <Route path="/admin/services" component={AdminServices} />
+      <Route path="/admin/settings" component={AdminSettings} />
       <Route component={NotFound} />
     </Switch>
   );

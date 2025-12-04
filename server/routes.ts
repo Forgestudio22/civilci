@@ -7,6 +7,7 @@ import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
 import { promises as fs } from "fs";
 import path from "path";
 import multer from "multer";
+import { sendNewCaseNotification, sendCaseConfirmation, sendStatusUpdateNotification, isEmailConfigured, testEmailConnection } from "./email";
 
 const UPLOADS_DIR = path.join(process.cwd(), "uploads");
 
@@ -85,6 +86,23 @@ export async function registerRoutes(
       const userId = req.user?.claims?.sub;
       const caseReview = await storage.createCaseReview(parseResult.data, userId);
       
+      // Send email notifications (non-blocking)
+      Promise.all([
+        sendNewCaseNotification({
+          id: caseReview.id,
+          name: caseReview.name,
+          email: caseReview.email,
+          serviceType: caseReview.serviceType || undefined,
+          urgency: caseReview.urgency,
+          caseSummary: caseReview.caseSummary,
+        }),
+        sendCaseConfirmation({
+          name: caseReview.name,
+          email: caseReview.email,
+          id: caseReview.id,
+        }),
+      ]).catch(err => console.error("[Email] Error sending notifications:", err));
+      
       return res.status(201).json({
         message: "Case review request submitted successfully",
         id: caseReview.id,
@@ -157,9 +175,27 @@ export async function registerRoutes(
       const { id } = req.params;
       const { status } = req.body;
       
+      // Get current case to track status change
+      const currentCase = await storage.getCaseReview(id);
+      if (!currentCase) {
+        return res.status(404).json({ message: "Case review not found" });
+      }
+      
+      const previousStatus = currentCase.status;
       const caseReview = await storage.updateCaseReviewStatus(id, status);
       if (!caseReview) {
         return res.status(404).json({ message: "Case review not found" });
+      }
+      
+      // Send status update notification (non-blocking)
+      if (previousStatus !== status) {
+        sendStatusUpdateNotification({
+          name: caseReview.name,
+          email: caseReview.email,
+          id: caseReview.id,
+          status,
+          previousStatus,
+        }).catch(err => console.error("[Email] Error sending status update:", err));
       }
       
       return res.json(caseReview);
@@ -364,6 +400,16 @@ export async function registerRoutes(
   });
 
   // Admin blog management
+  app.get("/api/admin/blog", isAuthenticated, isAdmin, async (req, res) => {
+    try {
+      const posts = await storage.getBlogPosts();
+      return res.json(posts);
+    } catch (error) {
+      console.error("Error fetching all blog posts:", error);
+      return res.status(500).json({ message: "Failed to fetch blog posts" });
+    }
+  });
+
   app.post("/api/admin/blog", isAuthenticated, isAdmin, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
@@ -499,6 +545,22 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error updating booking:", error);
       return res.status(500).json({ message: "Failed to update booking" });
+    }
+  });
+
+  // Email configuration status (admin only)
+  app.get("/api/admin/email-status", isAuthenticated, isAdmin, async (req, res) => {
+    return res.json({ configured: isEmailConfigured() });
+  });
+
+  // Test email connection (admin only)
+  app.post("/api/admin/email-test", isAuthenticated, isAdmin, async (req, res) => {
+    try {
+      const result = await testEmailConnection();
+      return res.json(result);
+    } catch (error) {
+      console.error("Error testing email connection:", error);
+      return res.status(500).json({ success: false, message: "Failed to test email connection" });
     }
   });
 

@@ -4,7 +4,27 @@
 
 Civil CI is a civil-rights intelligence platform designed to help individuals targeted by systemic abuse. The application serves as a forensic case reconstruction and misconduct analysis hub, providing a professional interface for case review submissions and information presentation.
 
-This is a single-page marketing website with a dark, forensic-themed aesthetic built using React, TypeScript, and Express. The site features multiple sections including hero, services, process explanation, about, and contact forms. The application uses a modern stack with Vite for building, Tailwind CSS for styling, shadcn/ui for components, and includes a backend API for handling case review submissions.
+This is a full-stack application with a dark, forensic-themed aesthetic built using React, TypeScript, and Express. The site features multiple sections including hero, services, process explanation, about, and contact forms. It includes a full admin portal for content management (blog posts, case reviews, services, settings). The application uses a modern stack with Vite for building, Tailwind CSS for styling, shadcn/ui for components, and includes a backend API for handling case review submissions and admin operations.
+
+## Admin Portal
+
+The admin portal is accessible at `/admin` and requires an admin role. Features include:
+- **Dashboard**: Overview of pending cases, activity, and quick actions
+- **Case Reviews**: View, update status, and manage case review submissions
+- **Blog Posts**: Create, edit, publish/unpublish intelligence briefings
+- **Services**: View and edit service information (local session only)
+- **Settings**: Site configuration, notifications, and email settings
+
+## Email System
+
+The email system uses Resend for transactional emails. To enable:
+1. Add `RESEND_API_KEY` secret in the Secrets panel
+2. Optionally set `FROM_EMAIL` and `ADMIN_EMAIL` environment variables
+
+Emails sent:
+- New case review notification to admin
+- Case confirmation to submitter
+- Status update notifications to clients
 
 ## User Preferences
 
