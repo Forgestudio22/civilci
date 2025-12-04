@@ -62,7 +62,7 @@ export function AboutSection() {
             <div className="pl-6 md:pl-8">
               <Quote className="h-8 w-8 md:h-10 md:w-10 text-gold/30 mb-4" />
               <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl italic text-foreground leading-relaxed" data-testid="text-about-quote">
-                "What's wrong is wrong. We fight for what's right."
+                "What's wrong is wrong. We expose the lies and fight for the justice you deserve."
               </blockquote>
               <p className="mt-4 text-sm text-muted-foreground">— Founder, Civil CI</p>
             </div>
