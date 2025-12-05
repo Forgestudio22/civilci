@@ -6,26 +6,26 @@ import blogHeroImage from "@assets/56AD7A1A-567F-4004-B02A-D6ADE7C4CDFC_17648961
 export default function AboutBlogPage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="relative">
+      <div className="relative min-h-[500px]">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-top bg-no-repeat"
           style={{ backgroundImage: `url(${blogHeroImage})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background" />
         
         <div className="relative z-10 container mx-auto px-4 py-8">
           <Link href="/blog">
-            <Button variant="ghost" className="mb-8" data-testid="link-back-blog">
+            <Button variant="ghost" className="mb-8 text-white hover:text-white hover:bg-white/20" data-testid="link-back-blog">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Blog
             </Button>
           </Link>
           
-          <div className="max-w-4xl mx-auto pt-12 pb-24">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" data-testid="text-about-title">
+          <div className="max-w-4xl mx-auto pt-48 pb-12">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg" data-testid="text-about-title">
               About the Civil CI Blog
             </h1>
-            <p className="text-2xl md:text-3xl text-primary font-semibold">
+            <p className="text-2xl md:text-3xl text-primary font-semibold drop-shadow-lg">
               For the people. By the people.
             </p>
           </div>
