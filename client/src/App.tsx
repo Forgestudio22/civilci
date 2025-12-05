@@ -10,6 +10,7 @@ import CaseStudiesPage from "@/pages/case-studies";
 import ResourcesPage from "@/pages/resources";
 import BlogPage from "@/pages/blog";
 import BlogPostPage from "@/pages/blog-post";
+import AboutBlogPage from "@/pages/about-blog";
 import SchedulePage from "@/pages/schedule";
 import AdminDashboard from "@/pages/admin/index";
 import AdminCases from "@/pages/admin/cases";
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/case-studies" component={CaseStudiesPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/blog" component={BlogPage} />
+      <Route path="/blog/about" component={AboutBlogPage} />
       <Route path="/blog/:slug" component={BlogPostPage} />
       <Route path="/schedule" component={SchedulePage} />
       <Route path="/admin" component={AdminDashboard} />

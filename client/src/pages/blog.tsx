@@ -166,10 +166,16 @@ export default function BlogPage() {
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4" data-testid="text-blog-title">
               Intelligence Briefings
             </h1>
-            <p className="text-lg text-muted-foreground" data-testid="text-blog-description">
+            <p className="text-lg text-muted-foreground mb-6" data-testid="text-blog-description">
               Analysis of systemic patterns, civil rights issues, and insights from our work 
               exposing institutional misconduct.
             </p>
+            <Link href="/blog/about">
+              <Button variant="outline" className="gap-2" data-testid="link-about-blog">
+                <FileText className="h-4 w-4" />
+                About This Blog
+              </Button>
+            </Link>
           </div>
 
           <div className="flex flex-wrap gap-2 justify-center mb-12">
